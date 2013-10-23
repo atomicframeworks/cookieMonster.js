@@ -4,6 +4,7 @@ JavaScript cookie manager with unicode support. <br>
 ## Installation
 1. Include the source script in your html. <br>
 This script will create the cookieMonster object that can be used to access cookies.
+
 ```html
 <script src="cookieMonster.js"></script>
 ```
@@ -11,7 +12,7 @@ This script will create the cookieMonster object that can be used to access cook
 ## cookieMonster Object Methods
 The cookieMonster object contains five methods: get(), set(), check(), .expire(), and .keys()
 
-### Baisc Usage
+### Usage
 Using the cookieMonster object you can: <br> 
     .get('cookieName') the value of a cookie. <br>
     .set('cookieName', 'value') the value of a cookie. <br>
