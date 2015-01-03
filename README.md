@@ -14,19 +14,27 @@ The cookieMonster object contains five methods: get(), set(), check(), .expire()
 
 ### Usage
 Using the cookieMonster object you can: <br> 
-    .get('cookieName') the value of a cookie. <br>
-    .set('cookieName', 'value') the value of a cookie. <br>
+    .get(params) the value of a cookie. <br>
+    .set(params) the value of a cookie. <br>
+    .expire(params) a cookie. <br>
     .check('cookieName') for the existance of a cookie. <br>
-    .expire('cookieName') a cookie. <br>
     .keys() to return an array of the current cookie keys. <br>
 
+Params object properties:
+	name: The name of the cookie.
+	value: The cookie's value.
+	expires: Date the cookie should expire if Date obj. If Number cookie will expire from n days from now. If string it will create a Date object from the string.
+	domain: If not specified, defaults to the host portion of the current document location.
+	path: If not specified, defaults to the current path of the current document location.
+	secure: If the cookie to only be transmitted over secure protocol as https.
 
-### cookieMonster.get('cookieName');
+
+### cookieMonster.get(params);
 Return the value of 'cookieName'.  If there is no cookie set returns undefined.
 ###### Arguments: <br>
     cookieName - The name of the cookie to get the value of
 
-### cookieMonster.set('cookieName', 'value', 'expires', 'path', 'domain', secure);
+### cookieMonster.set(params);
 Sets a cookie named 'cookieName' with 'value' that will expire in 'expires' days.  Returns true.
 ###### Arguments: <br>
     cookieName - The name of the cookie to set the value of
@@ -44,7 +52,7 @@ Checks for the existance of the cookie 'cookieName'.  Returns true / false.
 ###### Arguments: <br>
     cookieName - The name of the cookie to check the existance of
 
-### cookieMonster.expire('cookieName', 'path', 'domain');
+### cookieMonster.expire(params);
 Expire the cookie 'cookieName'.  Returns true.
 ###### Arguments: <br>
     cookieName - The name of the cookie to check to expire
