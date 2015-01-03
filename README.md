@@ -28,7 +28,7 @@ Return the value of 'cookieName'.  If there is no cookie set returns undefined.
 
 ### cookieMonster.set(params);
 Sets a cookie named 'cookieName' with 'value' that will expire in 'expires' days.  Returns true.
-###### Params: <br>
+###### Params properties: <br>
     name - The name of the cookie to set the value of
     value - The value to store
     expires - (Optional) If undefined the expiry date will be set to Fri, 31 Dec 9999 23:59:59 GMT. 
@@ -48,7 +48,7 @@ Checks for the existance of the cookie 'cookieName'.  Returns true / false.
 
 ### cookieMonster.expire(params);
 Expire the cookie 'cookieName'.  Returns true.
-###### Arguments: <br>
+###### Params properties: <br>
     cookieName - The name of the cookie to check to expire
     path - (Optional) The path scope of the cookie to expire. If undefined the default path will be used. <br>
     domain - (Optional) The domain scope of the cookie to expire. If undefined the default domain will be used. <br>
