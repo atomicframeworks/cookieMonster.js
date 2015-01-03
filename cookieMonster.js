@@ -67,8 +67,8 @@ var cookieMonster = (function () {
         },
 
         // Check for existance of cookie
-        check: function (name) {
-            return (document.cookie.search(new RegExp('(;\\s{0,1}|^)' + encodeURIComponent(name) + '\\s*\\=', 'g')) !== -1);
+        check: function (params) {
+            return (document.cookie.search(new RegExp('(;\\s{0,1}|^)' + encodeURIComponent(params.name) + '\\s*\\=', 'g')) !== -1);
         },
 		
         // Return all cookie keys
