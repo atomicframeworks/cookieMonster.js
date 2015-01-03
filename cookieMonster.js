@@ -15,7 +15,7 @@ var cookieMonster = (function () {
     return {
 
         // Get cookie value
-        get: function (opts) {
+        get: function (params) {
             // Init vars
             var c = document.cookie.split('; '), i = c.length - 1, cookies = {}, C;
             
@@ -26,44 +26,44 @@ var cookieMonster = (function () {
             }
 			
 			// If cookie exists return the value
-            if (cookies[encodeURIComponent(opts.name)]) {
-                return decodeURIComponent(cookies[encodeURIComponent(opts.name)]);
+            if (cookies[encodeURIComponent(params.name)]) {
+                return decodeURIComponent(cookies[encodeURIComponent(params.name)]);
             }
         },
 
         // Set a cookie
-        set: function (opts) {
+        set: function (params) {
             // Init vars & set defaults
             var date = new Date(),
-				val = opts.value || '';
-            if (typeof opts.expires === 'number') {
+				val = params.value || '';
+            if (typeof params.expires === 'number') {
                 // If expires is a number - treat as setting expires in n days
-                date.setDate(date.getDate() + opts.expires);
-            } else if (opts.expires instanceof Date) {				
+                date.setDate(date.getDate() + params.expires);
+            } else if (params.expires instanceof Date) {				
                 // If expires is a Date object - set to the expires date object
-                date = opts.expires;
-            } else if (typeof opts.expires === 'string') {				
+                date = params.expires;
+            } else if (typeof params.expires === 'string') {				
                 // If it is a string assume they have formatted string to convert to date
-                date = new Date(opts.expires);
+                date = new Date(params.expires);
             }
 			
 			// Set the cookie
 			document.cookie = [
-				encodeURIComponent(opts.name) + '=' + encodeURIComponent(opts.value),
-				opts.expires ? '; expires=' + date.toUTCString() : '',
-				opts.domain ? '; domain=' + opts.domain : '',
-				opts.path ? '; path=' + opts.path : '',
-				opts.secure ? '; secure' : ''
+				encodeURIComponent(params.name) + '=' + encodeURIComponent(val),
+				params.expires ? '; expires=' + date.toUTCString() : '',
+				params.domain ? '; domain=' + params.domain : '',
+				params.path ? '; path=' + params.path : '',
+				params.secure ? '; secure' : ''
 			].join('');
 			
             return true;
         },
 		
         // Expire the cookie
-        expire: function (opts) {
+        expire: function (params) {
 			// Set the expiry to Unix epoch
-			opts.expires = new Date(0);
-            return this.set(opts);
+			params.expires = new Date(0);
+            return this.set(params);
         },
 
         // Check for existance of cookie
