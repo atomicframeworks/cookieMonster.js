@@ -42,6 +42,7 @@ var cookieMonster = (function () {
                 date = new Date(expires);
             }
 			
+			// Set the cookie
 			document.cookie = [
 				encodeURIComponent(name) + '=' + encodeURIComponent(val),
 				expires ? '; expires=' + date.toUTCString() : '',
@@ -49,7 +50,7 @@ var cookieMonster = (function () {
 				path ? '; path=' + path : '',
 				secure ? '; secure' : ''
 			].join('');
-			debugger;
+			
             return true;
         },
         // Expire the cookie by setting date to Unix epoch
