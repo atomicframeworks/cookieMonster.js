@@ -29,24 +29,27 @@ var cookieMonster = (function () {
         // Set a cookie
         set: function (name, value, expires, path, domain, secure) {
             // Init vars & set defaults
-            var date = new Date(), expiry = expires || 'Fri, 31 Dec 9999 23:59:59 GMT', val = value || '';
-            if (typeof expiry === 'number') {
+            var date = new Date(),
+				val = value || '';
+            if (typeof expires === 'number') {
                 // If expires is a number - treat as setting expires in n days
-                date.setDate(date.getDate() + expiry);
-            } else if (expires instanceof Date) {
+                date.setDate(date.getDate() + expires);
+            } else if (expires instanceof Date) {				
                 // If expires is a Date object - set to the expires date object
-                date = expiry;
-            } else if (typeof expires === 'string') {
+                date = expires;
+            } else if (typeof expires === 'string') {				
                 // If it is a string assume they have formatted string to convert to date
-                date = new Date(expiry);
+                date = new Date(expires);
             }
-            document.cookie = [
-                encodeURIComponent(name) + '=' + encodeURIComponent(val),
-                expiry ? '; expires=' + date.toUTCString() : '',
-                domain ? '; domain=' + domain : '',
-                path ? '; path=' + path : '',
-                secure ? '; secure' : ''
-            ].join('');
+			
+			document.cookie = [
+				encodeURIComponent(name) + '=' + encodeURIComponent(val),
+				expires ? '; expires=' + date.toUTCString() : '',
+				domain ? '; domain=' + domain : '',
+				path ? '; path=' + path : '',
+				secure ? '; secure' : ''
+			].join('');
+			debugger;
             return true;
         },
         // Expire the cookie by setting date to Unix epoch
