@@ -17,27 +17,19 @@ Using the cookieMonster object you can: <br>
     .get(params) the value of a cookie. <br>
     .set(params) the value of a cookie. <br>
     .expire(params) a cookie. <br>
-    .check('cookieName') for the existance of a cookie. <br>
+    .check(params) for the existance of a cookie. <br>
     .keys() to return an array of the current cookie keys. <br>
-
-Params object properties:
-	name: The name of the cookie.
-	value: The cookie's value.
-	expires: Date the cookie should expire if Date obj. If Number cookie will expire from n days from now. If string it will create a Date object from the string.
-	domain: If not specified, defaults to the host portion of the current document location.
-	path: If not specified, defaults to the current path of the current document location.
-	secure: If the cookie to only be transmitted over secure protocol as https.
 
 
 ### cookieMonster.get(params);
 Return the value of 'cookieName'.  If there is no cookie set returns undefined.
-###### Arguments: <br>
-    cookieName - The name of the cookie to get the value of
+###### Params properties: <br>
+    name - The name of the cookie to get the value of
 
 ### cookieMonster.set(params);
 Sets a cookie named 'cookieName' with 'value' that will expire in 'expires' days.  Returns true.
-###### Arguments: <br>
-    cookieName - The name of the cookie to set the value of
+###### Params: <br>
+    name - The name of the cookie to set the value of
     value - The value to store
     expires - (Optional) If undefined the expiry date will be set to Fri, 31 Dec 9999 23:59:59 GMT. 
         If expires is a Number object sets the expiry date to n days in the future.
@@ -47,10 +39,12 @@ Sets a cookie named 'cookieName' with 'value' that will expire in 'expires' days
     domain - (Optional) Sets the domain scope of the cookie. If undefined the default domain will be used.
     secure - (Optional) Boolean to indicate if the cookie should be transferred over Https only.
                 
-### cookieMonster.check('cookieName');
+### cookieMonster.check(params);
 Checks for the existance of the cookie 'cookieName'.  Returns true / false.
-###### Arguments: <br>
-    cookieName - The name of the cookie to check the existance of
+###### Params properties: <br>
+    name - The name of the cookie to check the existance of
+    path - (Optional) Sets the path scope of the cookie. If undefined the default path will be used.
+    domain - (Optional) Sets the domain scope of the cookie. If undefined the default domain will be used.
 
 ### cookieMonster.expire(params);
 Expire the cookie 'cookieName'.  Returns true.
