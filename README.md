@@ -43,8 +43,6 @@ Sets a cookie named 'cookieName' with 'value' that will expire in 'expires' days
 Checks for the existance of the cookie 'cookieName'.  Returns true / false.
 ###### Params properties: <br>
     name - The name of the cookie to check the existance of
-    path - (Optional) Sets the path scope of the cookie. If undefined the default path will be used.
-    domain - (Optional) Sets the domain scope of the cookie. If undefined the default domain will be used.
 
 ### cookieMonster.expire(params);
 Expire the cookie 'cookieName'.  Returns true.
